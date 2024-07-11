@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8" />
+<title>Gemma C++ GitHub Repositories</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+<h1>Gemma C++ GitHub Repositories</h1>
+<ul id="repo-list"></ul>
+</div>
+<script>
+fetch('https://api.github.com/users/google/repos')
+.then(response => response.json())
+.then(data => {
+data.forEach(repo => {
+const li = document.createElement('li')
+li.innerHTML = `<a href="${repo.html_url}">${repo.name}</a>`
+document.getElementById('repo-list').appendChild(li)
+})
+})
+</script>
+</body>
+
+</html>
+
